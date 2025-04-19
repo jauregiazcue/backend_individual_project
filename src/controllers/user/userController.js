@@ -1,4 +1,4 @@
-import { UserNameNotProvided, UserRoleIncorrect } from "../../utils/errors.js";
+
 import userModel from "../../models/userModel.js";
 
 async function controllerGetByID(id) {
@@ -17,16 +17,10 @@ async function controllerCreate(data) {
 }
 
 async function controllerEdit(id, data) {
-  const userRole = ["customer", "seller"];
-  if (data.role) {
-    data.role = data.role.toLowerCase();
-    if (!userRole.includes(data.role)) {
-      throw new UserRoleIncorrect();
-    }
-  }
+  
   const result = await userModel.update(data, {
     where: {
-      user_id: id,
+      email: id,
     },
   });
   const updatedUser = await userModel.findByPk(id);
@@ -36,7 +30,7 @@ async function controllerEdit(id, data) {
 async function controllerRemove(id) {
   const result = await userModel.destroy({
     where: {
-      user_id: id,
+      email: id,
     },
   });
   return result;

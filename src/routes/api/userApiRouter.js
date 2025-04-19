@@ -1,15 +1,18 @@
 import { Router } from "express";
-import userAPIController from "../../controllers/user/userAPIController.js";
+import userApiController from "../../controllers/user/userApiController.js";
 
 const router = Router();
-
+router.get("/",(req,res)=>{
+    res.send("Hello User Api Router");
+});
+/*
 //read
-router.get("/", userAPIController.getAll);
+router.get("/", userApiController.getAll);
 
 //update
-router.get("/:id", userAPIController.getByID);
+router.get("/:id", userApiController.getByID);
 
 //delete
-router.get("/:id/delete", userAPIController.remove);
+router.get("/:id/delete", userApiController.remove);*/
 
 export default router;
