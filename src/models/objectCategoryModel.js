@@ -3,7 +3,7 @@ import connection from "../config/sequelize.js";
 
 const ObjectCategory = connection.define("object_category", {
     object_category_id: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement:true
