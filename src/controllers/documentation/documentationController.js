@@ -38,7 +38,7 @@ async function controllerRemove(id) {
     },
   });
   return result == 1 ? "Removed Completed without complication" 
-  : "The has been an error in the removing process";
+  : "There has been an error in the removing process";
 }
 
 export default {
