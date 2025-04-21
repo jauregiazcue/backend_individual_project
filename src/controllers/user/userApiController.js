@@ -1,5 +1,5 @@
 import userController from "./userController.js";
-
+import {hash,compare} from "../../utils/bcrypt.js"
 
 async function getByID(req, res) {
   try {
@@ -24,6 +24,7 @@ async function getAll(req, res) {
 
 async function create(req, res) {
   try {
+    req.body.password = await hash(req.body.password);
     const response = await userController.controllerCreate(req.body);
     
     res.json(response);
@@ -40,6 +41,7 @@ async function create(req, res) {
 async function edit(req, res) {
   try {
     const id = req.params.id;
+    req.body.password = await hash(req.body.password);
     const response = await userController.controllerEdit(id, req.body);
     res.json(response);
   } catch (error) {
@@ -47,7 +49,7 @@ async function edit(req, res) {
     if (error.statusCode) {
       res.status(error.statusCode).json({ error: error.message });
     } else {
-      res.status(500).json({ error: "Server error" });
+      res.status(500).json({ error: error });
     }
   }
 }
