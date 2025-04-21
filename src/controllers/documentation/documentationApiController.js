@@ -3,8 +3,8 @@ import docController from "./documentationController.js";
 async function getByID(req, res) {
   try {
     const id = req.params.id;
-    const user = await docController.controllerGetByID(id);
-    res.json(user);
+    const response = await docController.controllerGetByID(id);
+    res.json(response);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -13,8 +13,8 @@ async function getByID(req, res) {
 
 async function getAll(req, res) {
   try {
-    const user = await docController.controllerGetAll();
-    res.json(user);
+    const response = await docController.controllerGetAll();
+    res.json(response);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });

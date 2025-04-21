@@ -3,13 +3,13 @@ import userModel from "../../models/userModel.js";
 import { hash } from "../../utils/bcrypt.js";
 
 async function controllerGetByID(id) {
-  const user = await userModel.findByPk(id);
-  return user;
+  const result = await userModel.findByPk(id);
+  return result;
 }
 
 async function controllerGetAll() {
-  const user = await userModel.findAll();
-  return user;
+  const result = await userModel.findAll();
+  return result;
 }
 
 async function controllerCreate(data) { 
@@ -38,7 +38,8 @@ async function controllerRemove(id) {
       email: id,
     },
   });
-  return result;
+  return result == 1 ? "Removed Completed without complication" 
+  : "The has been an error in the removing process";
 }
 
 export default {

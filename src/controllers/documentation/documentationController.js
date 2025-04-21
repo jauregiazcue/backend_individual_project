@@ -2,13 +2,13 @@
 import docModel from "../../models/documentationModel.js";
 
 async function controllerGetByID(id) {
-  const user = await docModel.findByPk(id);
-  return user;
+  const result = await docModel.findByPk(id);
+  return result;
 }
 
 async function controllerGetAll() {
-  const user = await docModel.findAll();
-  return user;
+  const result = await docModel.findAll();
+  return result;
 }
 
 async function controllerCreate(data) { 
@@ -37,7 +37,8 @@ async function controllerRemove(id) {
       documentation_id: id,
     },
   });
-  return result;
+  return result == 1 ? "Removed Completed without complication" 
+  : "The has been an error in the removing process";
 }
 
 export default {

@@ -1,10 +1,9 @@
-import userController from "./userController.js";
-import {hash} from "../../utils/bcrypt.js"
+import objCategoryController from "./objCategoryController.js";
 
 async function getByID(req, res) {
   try {
     const id = req.params.id;
-    const response = await userController.controllerGetByID(id);
+    const response = await objCategoryController.controllerGetByID(id);
     res.json(response);
   } catch (error) {
     console.error(error);
@@ -14,7 +13,7 @@ async function getByID(req, res) {
 
 async function getAll(req, res) {
   try {
-    const response = await userController.controllerGetAll();
+    const response = await objCategoryController.controllerGetAll();
     res.json(response);
   } catch (error) {
     console.error(error);
@@ -24,8 +23,7 @@ async function getAll(req, res) {
 
 async function create(req, res) {
   try {
-    req.body.password = await hash(req.body.password);
-    const response = await userController.controllerCreate(req.body);
+    const response = await objCategoryController.controllerCreate(req.body);
     
     res.json(response);
   } catch (error) {
@@ -41,15 +39,14 @@ async function create(req, res) {
 async function edit(req, res) {
   try {
     const id = req.params.id;
-    req.body.password = await hash(req.body.password);
-    const response = await userController.controllerEdit(id, req.body);
+    const response = await objCategoryController.controllerEdit(id, req.body);
     res.json(response);
   } catch (error) {
     console.error(error);
     if (error.statusCode) {
       res.status(error.statusCode).json({ error: error.message });
     } else {
-      res.status(500).json({ error: "Server error" });
+      res.status(500).json({ error: error });
     }
   }
 }
@@ -57,7 +54,7 @@ async function edit(req, res) {
 async function remove(req, res) {
   try {
     const id = req.params.id;
-    const response = await userController.controllerRemove(id);
+    const response = await objCategoryController.controllerRemove(id);
     res.json(response);
   } catch (error) {
     console.error(error);
