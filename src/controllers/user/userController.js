@@ -18,7 +18,7 @@ async function controllerCreate(data) {
 }
 
 async function controllerEdit(id, data) {
-  const user = await userModel.findByPk(id);
+  let user = await userModel.findByPk(id);
   data.first_name = data.first_name ? data.first_name : user.first_name;
   data.last_name = data.last_name ? data.last_name : user.last_name;
   data.password = data.password ? await hash(data.password) : user.pasword;
@@ -28,8 +28,8 @@ async function controllerEdit(id, data) {
       email: id,
     },
   });
-  const updatedUser = await userModel.findByPk(id);
-  return updatedUser;
+  user = await userModel.findByPk(id);
+  return user;
 }
 
 async function controllerRemove(id) {

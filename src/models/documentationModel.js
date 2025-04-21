@@ -3,10 +3,9 @@ import connection from "../config/sequelize.js";
 
 const Documentation = connection.define("documentation", {
     documentation_id: {
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.STRING(45),
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
     },
     name: {
         type: DataTypes.STRING(45),
@@ -23,4 +22,4 @@ const Documentation = connection.define("documentation", {
 });
 
 
-export default User;
+export default Documentation;
