@@ -1,0 +1,17 @@
+html
+  head
+    title Zarautz
+    
+    block styles
+      link(rel="stylesheet", href="/styles.css")
+  body 
+    div(class="my-body")
+        include navbar.pug
+        main
+          if error 
+              p(class="error")= error
+          if message 
+              p(class="message")= message
+          block content
+        footer
+          img(src="/assets/logo.png", alt="logo") 

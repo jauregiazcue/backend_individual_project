@@ -17,5 +17,10 @@ USE zarautz_db;
  INSERT INTO `object` (`object_id`,`lost_at`,`documentation_id`,`object_category_id`) VALUES
 ('D16M5A2025M26S08','2025-03-20 10:20:00',null,1),
 ('D16M5A2025M26S10','2025-03-21 17:50:00',null,1),
-('D16M5A2025M26S30','2025-03-22 12:00:00','72537247P',4);
+('D16M5A2025M26S30','2025-03-22 12:00:00','12345678P',4);
+
+INSERT INTO `request` (`request_at`,`first_name`,`last_name`,`dni`,`direction`,`telephone`,`email`,`lost_at`,`place`,`description`,`object_category_id`) VALUES
+('2025-03-20 10:20:00','Persona','Inventada','13653245A',
+'Hegoalde 3 1C','653 123 123','nombre@ejemplo.com','2025-03-20 10:20:00',
+'Aten Parkia','Ayer perdi mi reloj de bolsillo',6);
 
