@@ -7,27 +7,35 @@ router.get("/", (req, res) => {
 });
 
 router.get("/es/inicio", (req, res) => {
-  res.render("home");
+  res.render("pages/home");
 });
 
 router.get("/es/tramitesYServicios", (req, res) => {
-  res.render("services");
+  res.render("pages/services");
 });
 
-router.get("/ciudad", (req, res) => {
-  res.render("city");
+router.get("/es/ciudad", (req, res) => {
+  res.render("pages/city");
 });
 
-router.get("/ayuntamiento", (req, res) => {
-  res.render("cityhall");
+router.get("/es/ciudad/objetosPerdidos", (req, res) => {
+  res.render("pages/lostAndFound");
 });
 
-router.get("/turismo", (req, res) => {
-  res.render("turism");
+router.get("/es/ciudad", (req, res) => {
+  res.render("pages/city");
 });
 
-router.get("/agenda2030", (req, res) => {
-  res.render("schedule");
+router.get("/es/ayuntamiento", (req, res) => {
+  res.render("pages/cityhall");
+});
+
+router.get("/es/turismo", (req, res) => {
+  res.render("pages/turism");
+});
+
+router.get("/es/agenda2030", (req, res) => {
+  res.render("pages/schedule");
 });
 
 

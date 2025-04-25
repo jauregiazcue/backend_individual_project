@@ -3,7 +3,7 @@
     --main-color: #3a4d5f;
 
     --second-color: white;
-    --footer-color: rgb(13, 13, 20);    
+    --footer-color: rgb(13, 13, 20);
 }
 
 
@@ -26,21 +26,26 @@ main {
     min-height: 90vh;
 }
 
-.nav-logo, footer {
+.nav-logo,
+footer {
     height: 10vh;
 }
 
 footer {
     background-color: var(--footer-color);
-    
+
 }
 
-.nav-logo img{
+img {
+    object-fit: contain;
+}
+
+.nav-logo img {
     width: auto;
     height: 100%;
     max-width: 40%;
     margin-left: 10px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 footer img {
@@ -49,7 +54,7 @@ footer img {
     margin-right: auto;
     width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -87,7 +92,7 @@ header nav ul li {
 header a {
     text-decoration: none;
     color: var(--main-color);
-    padding-top: .7em;
+    padding-top: .5em;
     padding-bottom: 1em;
     padding-left: .5em;
     padding-right: .5em;
@@ -113,14 +118,64 @@ header a:active {
     text-decoration: none;
 }
 
-@media only screen and (max-width: 1000px) {
+.my-article {
+    background-color: green;
+    display: flex;
+}
+
+.my-nav {
+    background-color: blue;
+    width:20%;
+}
+
+.my-main {
+    background-color: red;
+    width: 80%;
+    display: flex;
+}
+
+.my-main  img {
+    width: auto;
+    height: 10%;
+    object-fit: contain;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .example {
+        background: red;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body {
+        background: green;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    body {
+        background: blue;
+    }
     .my-body {
         border-style: solid;
-        border-width: 2px;
-        border-color: var(--second-color);
-        border-radius: 5px;
+        border-width: 0px;
         width: 100%;
-        padding-top: 1%;
-        margin: auto auto;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        background: orange;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    body {
+        background: pink;
     }
 }
