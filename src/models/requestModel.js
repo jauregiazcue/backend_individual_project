@@ -8,7 +8,7 @@ const Request = connection.define("request", {
         primaryKey: true,
         autoIncrement:true
     },
-    requested_at: {
+    request_at: {
         type: DataTypes.DATE,
         defaultValue: new Date(),
         allowNull: false,
