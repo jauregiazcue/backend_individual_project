@@ -19,7 +19,7 @@ router.get("/es/ciudad", (req, res) => {
 });
 
 router.get("/es/ciudad/objetosPerdidos", (req, res) => {
-  res.render("pages/lostAndFound");
+  res.render("pages/lostAndFound/lostAndFound");
 });
 
 router.get("/es/ciudad", (req, res) => {
