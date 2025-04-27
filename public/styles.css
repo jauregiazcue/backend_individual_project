@@ -78,6 +78,7 @@ header nav .nav-logo {
 
 }
 
+
 header nav ul {
     display: flex;
     flex-flow: row;
@@ -112,11 +113,13 @@ header a:hover {
     text-decoration: none;
 }
 
-header a:visited {
+
+
+a:visited {
     text-decoration: none;
 }
 
-header a:active {
+a:active {
     text-decoration: none;
 }
 
@@ -127,6 +130,28 @@ header a:active {
 .my-nav {
     width:20%;
     border-right: 1px solid var(--second-color);
+}
+
+.my-nav a {
+    text-decoration: none;
+    color: var(--second-color);
+    padding-top: .5em;
+    padding-bottom: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+
+.my-nav a:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.my-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .my-main {
