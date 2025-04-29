@@ -1,5 +1,6 @@
 import userController from "./userController.js";
-import {hash} from "../../utils/bcrypt.js"
+import {hash} from "../../utils/bcrypt.js";
+import {createToken,verifyToken} from "../../utils/token.js";
 
 async function getByID(req, res) {
   try {
@@ -65,10 +66,33 @@ async function remove(req, res) {
   }
 }
 
+
+async function login(req, res) {
+  try {
+    const { email, password } = req.body;
+    const result = await userController.controllerLogin(email, password);
+
+    const data = {
+      user_id: result.user_id
+    };
+    const token = createToken(data);
+    res.json({ token: token });
+  } catch (error) {
+    console.error(error);
+    if (error.statusCode) {
+      res.status(error.statusCode).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+}
+
+
 export default {
   getAll,
   getByID,
   create,
   edit,
   remove,
+  login
 };

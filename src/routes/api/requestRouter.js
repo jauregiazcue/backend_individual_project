@@ -6,15 +6,15 @@ const router = Router();
 //read
 router.get("/", requestController.getAll);
 
-router.get("/create",requestController.create);
+router.post("/create",requestController.create);
 
 //update
 router.get("/:id", requestController.getByID);
 
 
-router.get("/:id/edit",requestController.edit);
+router.put("/:id/edit",requestController.edit);
 
 //delete
-router.get("/:id/delete", requestController.remove);
+router.delete("/:id/delete", requestController.remove);
 
 export default router;

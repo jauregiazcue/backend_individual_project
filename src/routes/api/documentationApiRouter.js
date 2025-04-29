@@ -6,15 +6,15 @@ const router = Router();
 //read
 router.get("/", documentationApiController.getAll);
 
-router.get("/create",documentationApiController.create);
+router.post("/create",documentationApiController.create);
 
 //update
 router.get("/:id", documentationApiController.getByID);
 
 
-router.get("/:id/edit",documentationApiController.edit);
+router.put("/:id/edit",documentationApiController.edit);
 
 //delete
-router.get("/:id/delete", documentationApiController.remove);
+router.delete("/:id/delete", documentationApiController.remove);
 
 export default router;

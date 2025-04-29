@@ -1,20 +1,22 @@
 import { Router } from "express";
 import userApiController from "../../controllers/user/userApiController.js";
-
+import {isLoggedInAPI} from "../../middleware.js"
 const router = Router();
 
 //read
-router.get("/", userApiController.getAll);
+router.get("/", isLoggedInAPI,userApiController.getAll);
 
-router.get("/create",userApiController.create);
+router.post("/create",userApiController.create);
+
+router.get("/login",userApiController.login);
 
 //update
 router.get("/:id", userApiController.getByID);
 
 
-router.get("/:id/edit",userApiController.edit);
+router.put("/:id/edit",userApiController.edit);
 
 //delete
-router.get("/:id/delete", userApiController.remove);
+router.delete("/:id/delete", userApiController.remove);
 
 export default router;

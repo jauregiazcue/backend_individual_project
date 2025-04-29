@@ -1,6 +1,6 @@
 
 import userModel from "../../models/userModel.js";
-import { hash } from "../../utils/bcrypt.js";
+import { hash, compare } from "../../utils/bcrypt.js";
 
 async function controllerGetByID(id) {
   const result = await userModel.findByPk(id);
@@ -42,10 +42,37 @@ async function controllerRemove(id) {
   : "The has been an error in the removing process";
 }
 
+async function controllerLogin(email, password) {
+  if (!email) {
+    throw new Error("Email is not correct");
+  }
+  if (!password) {
+    throw new Error("Password is not correct");
+  }
+  const user = await userModel.findOne({
+    where: {
+      email: email,
+    },
+  });
+  if (!user) {
+    throw new UserInvalidCredentials();
+  }
+  const isSamePassword = await compare(password, user.password);
+  if (isSamePassword) {
+    // si la contraseña es correcta
+    return user;
+  } else {
+    throw new Error("Password is not correct");
+  }
+}
+
+
+
 export default {
   controllerGetByID,
   controllerGetAll,
   controllerCreate,
   controllerEdit,
   controllerRemove,
+  controllerLogin,
 };

@@ -6,15 +6,15 @@ const router = Router();
 //read
 router.get("/", objController.getAll);
 
-router.get("/create",objController.create);
+router.post("/create",objController.create);
 
 //update
 router.get("/:id", objController.getByID);
 
 
-router.get("/:id/edit",objController.edit);
+router.put("/:id/edit",objController.edit);
 
 //delete
-router.get("/:id/delete", objController.remove);
+router.delete("/:id/delete", objController.remove);
 
 export default router;
