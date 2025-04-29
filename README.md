@@ -2,8 +2,7 @@
 ### Hecho por Kai Jauregi
 
 ## Tema
-Una web en donde utilizando la API de [QR code api](https://goqr.me/api/) para crear QRs,
-ademas de poder generar distintos tipos de cifrados
+Una api sobre los objetos perdidos de zarautz
 
 ## Como verlo
 Para poder verlo teneis que :
