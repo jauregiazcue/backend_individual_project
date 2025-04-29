@@ -4,19 +4,19 @@ import {isLoggedInAPI} from "../../middleware.js"
 const router = Router();
 
 //read
-router.get("/", isLoggedInAPI,userApiController.getAll);
+router.get("/",isLoggedInAPI,userApiController.getAll);
 
 router.post("/create",userApiController.create);
 
 router.get("/login",userApiController.login);
 
 //update
-router.get("/:id", userApiController.getByID);
+router.get("/:id",isLoggedInAPI, userApiController.getByID);
 
 
-router.put("/:id/edit",userApiController.edit);
+router.put("/:id/edit",isLoggedInAPI,userApiController.edit);
 
 //delete
-router.delete("/:id/delete", userApiController.remove);
+router.delete("/:id/delete", isLoggedInAPI,userApiController.remove);
 
 export default router;

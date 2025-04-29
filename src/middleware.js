@@ -4,7 +4,7 @@ function isLoggedInAPI(req, res, next) {
     const authorization = req.headers.authorization;
     console.log("authorization", authorization);
     if (!authorization) {
-        res.status(401).json({ error: "Kai does not allow you to pass" });
+        res.status(401).json({ error: "You need to log in to access" });
     }
     let token = authorization.split(" ");
     token = token.pop();
@@ -16,7 +16,7 @@ function isLoggedInAPI(req, res, next) {
         }
         next();
     } else {
-        res.status(401).json({ error: "Kai does not allow you to pass" });
+        res.status(401).json({ error: "You need to log in to access" });
     }
 }
 
