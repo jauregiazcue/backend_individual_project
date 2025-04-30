@@ -4,7 +4,7 @@ import {isLoggedInAPI} from "../../middleware.js"
 const router = Router();
 
 //read
-router.get("/",isLoggedInAPI,userApiController.getAll);
+router.get("/",userApiController.getAll);
 
 router.post("/create",userApiController.create);
 
