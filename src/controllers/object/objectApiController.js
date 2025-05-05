@@ -11,6 +11,17 @@ async function getByID(req, res) {
   }
 }
 
+async function getByCategory(req, res) {
+  try {
+    const id = req.params.category_id;
+    const response = await objectController.controllerGetByCategory(id);
+    res.json(response);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+}
+
 async function getAll(req, res) {
   try {
     const response = await objectController.controllerGetAll();
@@ -65,6 +76,7 @@ async function remove(req, res) {
 export default {
   getAll,
   getByID,
+  getByCategory,
   create,
   edit,
   remove,

@@ -6,6 +6,13 @@ async function controllerGetByID(id) {
   return result;
 }
 
+async function controllerGetByCategory(category_id) {
+  const result = await objectModel.findAll({ 
+    where: {object_category_id: category_id} 
+  });
+  return result;
+}
+
 async function controllerGetAll() {
   const result = await objectModel.findAll();
   return result;
@@ -61,4 +68,5 @@ export default {
   controllerCreate,
   controllerEdit,
   controllerRemove,
+  controllerGetByCategory,
 };

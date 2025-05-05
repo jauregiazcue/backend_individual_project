@@ -8,6 +8,8 @@ router.get("/", objController.getAll);
 
 router.post("/create",isLoggedInAPI,objController.create);
 
+router.get("/category/:category_id", objController.getByCategory);
+
 //update
 router.get("/:id", objController.getByID);
 
