@@ -76,7 +76,8 @@ async function login(req, res) {
       user_id: result.user_id
     };
     const token = createToken(data);
-    res.json({ token: token });
+    res.cookie("token",token,{ httpOnly: true });
+    res.json({ cookie: "Token correctly cookiefy" });
   } catch (error) {
     console.error(error);
     if (error.statusCode) {
