@@ -35,7 +35,7 @@ async function getAll(req, res) {
 async function create(req, res) {
   try {
     const response = await objectController.controllerCreate(req.body);
-    
+
     res.json(response);
   } catch (error) {
     console.error(error);
